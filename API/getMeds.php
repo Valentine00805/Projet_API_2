@@ -80,7 +80,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-	function updanteMed($id)
+	function updateMed($id)
 	{
 		global $conn;
 		$_PUT =array();
