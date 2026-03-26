@@ -8,14 +8,25 @@
 		
 		case 'GET':
 			if(!empty($_GET["id"]))
+        //affiche 1 médicament spécifique
 			{
 				$id=intval($_GET["id"]);
-				getActiviter($id);
+				getMed($id);
 			}
 			else
+        //tous les médicaments
 			{
-				getActiviter();
+				getMeds();
 			}
+			break;
+		case 'POST':
+			// Ajouter un médicament
+			AddMed();
+			break;
+		case 'PUT':
+			// Modifier un médicament
+			$id = intval($_GET["id"]);
+			updateMed($id);
 			break;
 		default:
 			// Invalid Request Method
@@ -23,10 +34,10 @@
 			break;
 	}
     
-    function getActiviter()
+    function getMed()
 	{
 		global $conn;
-		$query = "SELECT * FROM activite";
+		$query = "SELECT * FROM medicament";
 		$response = array();
 		
 		$conn->query("SET NAMES utf8"); 
