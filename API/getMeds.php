@@ -50,3 +50,81 @@
 		header('Content-Type: application/json');
 		echo json_encode($response, JSON_PRETTY_PRINT);
 	}
+
+// function updanteMed($id)
+//     {
+//         global $conn;
+//         $_PUT
+//         $data = json_decode(file_get_contents('php://input'), true);
+//         $nom = $data["nom"];
+//         $prix = $data["prix"];
+//         $query = "UPDATE medicament SET nom='$nom', prix='$prix' WHERE id=$id";
+//         if($conn->query($query))
+        // {
+        //     $response = array(
+        //         "status" => 1,
+        //         "status_message" => "Médicament mis à jour avec succès."
+        //     );
+        // }
+        // else
+        // {
+        //     $response = array(
+        //         "status" => 0,
+        //         "status_message" => "EREEUR ! (lors de la mise à jour du médicament)" . $conn->error
+        //     );
+        // }
+        // header('Content-Type: application/json');
+        // echo json_encode($response);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
