@@ -23,7 +23,8 @@
 			break;
 	}
     
-    function getActiviter()
+	//plusieurs activités
+    function getActivites()
 	{
 		global $conn;
 		$query = "SELECT * FROM activite";
@@ -39,3 +40,21 @@
 		header('Content-Type: application/json');
 		echo json_encode($response, JSON_PRETTY_PRINT);
 	}
+		//un seul activité
+	function getActivite($id=0)
+		{
+			global $conn;
+			$query = "SELECT * FROM activite";
+			$response = array();
+			if($id != 0){
+				$query.=" WHERE id=".$id." LIMIT 1";
+			}
+			$conn->query("SET NAMES utf8"); 
+			$result = $conn->query($query); 
+			while ( $row = $result->fetch() ){
+				$response[] = $row;
+			}
+			header('Content-Type: application/json');
+			echo json_encode($response, JSON_PRETTY_PRINT);
+		}
+?>
