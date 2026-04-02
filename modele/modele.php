@@ -1,9 +1,9 @@
 <?php
 //POST pour medicament et activité
 //On commencera avec MEDICAMENT
-function insertMed($comp, $nom, $eff_therap, $eff_sec, $autre, $interd, $recom){
-    $url = 'http://127.0.0.1/API/getMeds.php';
-    $data = array('composition' => $comp, 'nom' => $nom, 'effets_therapeutiques' => $eff_therap, 'effets_secondaires' => $eff_sec, 'interaction_avec_autre_medicament' => $autre, 'interdiction' => $interd, 'recommendation' => $recom);
+function insertIns($nom, $prenom, $email, $date_naissance, $adresse, $telephone, $ida){
+    $url = 'http://127.0.0.1/Projet_API_2/API/getInscrit.php';
+    $data = array( 'nom' => $nom, 'prenom' => $prenom, 'email' => $email,'date_naissance' => $date_naissance, 'adresse' => $adresse, 'telephone' => $telephone, 'ida' => $ida);
 
     $options = array(
         'http' => array(
@@ -18,23 +18,32 @@ function insertMed($comp, $nom, $eff_therap, $eff_sec, $autre, $interd, $recom){
 }
 
 function selectMed(){
-    $url = 'http://127.0.0.1/API/getMeds.php';
+    $url = 'http://127.0.0.1/Projet_API_2/API/getMeds.php';
     $options = array(
         'http' => array(
             'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
+            'method' => 'GET',
             'content' => http_build_query($data)
         )
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
     Return $result;
-
-
-
 }
 
-
+function selectActivite() { 
+    $url = "http://127.0.0.1/Projet_API_2/API/getActivite.php";
+    $options = array( 
+    'http' =>array( 
+    'header' => "Content_type: application/x-www-form-urlencoded\r\n", 
+    'method' => 'GET') 
+    ); 
+    $context = stream_context_create($options); 
+    $activite = file_get_contents($url, false, $context); 
+    $activite=substr($activite,1); // pour supprimer le '/' du début json 
+    Return $activite ; 
+}
+?>
 
 
 
