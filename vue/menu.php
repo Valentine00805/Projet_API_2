@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="Couleurs.css">
-        <!--<link rel="icon" href="Logo/logo_fini1.png">-->
-    </head>
     <body>
         <nav>
             <ul>
                 <li>
-                    <a href="Accueil.php">Accueil</a>
+                    <a href="Accueil.php"><strong>Accueil</strong></a>
                 </li>
                 <li>
-                    <a href="Medicaments.php">Médicaments</a>
+                    <a href="Medicaments.php"><strong>Médicaments</strong></a>
                 </li>
                 <li>
-                    <a href="Activites.php">Activités</a>
+                    <a href="Activites.php"><strong>Activités</strong></a>
                 </li>
             </ul>
         </nav>

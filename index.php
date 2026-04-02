@@ -1,36 +1,19 @@
 <?php
-    //inclusion du modèle
-    require_once 'modele/modeleCoureur.php';
-    //inclusion des contrôleurs
-    require_once 'controleur/controleur.php';
-    //Lancement du bon contrôleur
-    if (empty($_GET['action'])) {
-        //cas de la consultation : écran de départ
-        consulteCoureurs(); 
-    } else {
-        if ($_GET['action'] == 'FORM') {
-            //Cas du formulaire d'ajout
-            chargementFormAjoutCoureur();
-        } else {
-            if ($_GET['action'] == 'AJO') {
-                //Cas de l'ajout
-                ajoutCoureur();
-            } else {
-                if ($_GET['action'] == 'MAJ') {
-                    //Cas de l'aiguillage entre mise à jour et suppression'
-                    aiguillageCoureur();
-                } else {
-                    if ($_GET['action'] == 'MOD') {
-                        //Cas de la mise à jour
-                        modifCoureur();
-                    } else {
-                        if ($_GET['action'] == 'SUP') {
-                            //Cas de la suppression
-                            supprCoureur();
-                        }
-                    }
-                }
-            } 
-        }
+//
+//On appele le modele et controleur
+require_once "modele/modele.php"; 
+require_once "controleur/controleur.php"; 
+
+//On fait des actions avec le controleur si le formulaire est envoyé
+if (isset($_POST["actionIns"]))
+{
+    if ($_POST["actionIns"]=="inscrire")
+    {
+        insertIns() ; //contrôleur
+
     }
+}
+
+// cas défaut : affichage de tous
+getActivites() ; //contrôleur
 ?>
