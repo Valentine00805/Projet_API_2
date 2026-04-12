@@ -16,34 +16,35 @@
     </head>
     <body>
         <?php require "menu.php";?>
-        <form action="Formulaire_traitement.php" method="post">
+        <form action="../index.php" method="post"> 
             <fieldset>
-                <legend><strong>Partie 4 : Suivi</strong></legend>
+                <legend><strong>Formulaire d'inscription : </strong></legend>
+                <input type="hidden" name="ida" value="0">
                 <div>
                     <ul>
                         <li>
-                            <label for="Commentaire" name="Nom">Nom</label>  
-                            <textarea name="Nom" placeholder="Champ à remplir"></textarea><br>
+                            <label for="nom">Nom</label>
+                            <textarea id="nom" name="nom" placeholder="Champ à remplir"></textarea><br>
                         </li>
                         <li>
-                            <label for="Commentaire" name="prenom">Prénom</label>  
-                            <textarea name="prenom" placeholder="Champ à remplir"></textarea><br>
+                            <label for="prenom">Prénom</label>
+                            <textarea id="prenom" name="prenom" placeholder="Champ à remplir"></textarea><br>
                         </li>
                         <li>
-                            Date de naissance : 
+                            <label for="date_naissance">Date de naissance :</label>
                             <input type="date" id="date_naissance" name="date_naissance">
                         </li>
                         <li>
-                            <label for="email2">Email : </label>
-                            <input type="email" id="email2" name="email2" placeholder="Entrez votre email"><br><br>
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" placeholder="Entrez votre email"><br><br>
                         </li>
                         <li>
-                            <label for="telephone">Téléphone : </label>
-                            <input type="telephone" id="téléphone" name="téléphone" placeholder="Entrez votre téléphone"><br><br>
+                            <label for="telephone">Téléphone :</label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="Entrez votre téléphone"><br><br>
                         </li>
                         <li>
-                            <label for="Adresse" name="Adresse">Adresse : </label>  
-                            <textarea name="Adresse" placeholder="Champ à remplir"></textarea><br>
+                            <label for="adresse">Adresse :</label>
+                            <textarea id="adresse" name="adresse" placeholder="Champ à remplir"></textarea><br>
                         </li>                        
                     </ul>
                     <select id="activite1" name="activite1">
@@ -238,7 +239,7 @@
                         <option value="atelierdermatologie">Atelier dermatologie</option>
                     </select><br><br>
                 </div>
-                <center><input type="submit" value="Envoyer le formulaire"></a></center>
+                <center><input type="submit" name="actionIns" value="inscrire"></center>
             </fieldset>
         </form>    
     </body>
