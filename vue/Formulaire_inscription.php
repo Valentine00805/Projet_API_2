@@ -72,7 +72,7 @@
                         </li>
                     </ul>
                 </div>
-                <center><input type="submit" name="actionIns" value="inscrire"></center>
+                <center><input type="submit" name="actionIns" value="S'inscrire"></center>
             </fieldset>
         </form>    
     </body>
