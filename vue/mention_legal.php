@@ -3,13 +3,20 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Les médicaments</title>
+        <title>Les mentions légales</title>
         <link rel="stylesheet" href="Style.css">
         <link rel="icon" href="Logo.jpg">
         <meta name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
 
         <link rel="stylesheet" href="Style.css">
+
+        <link rel="stylesheet" href="CSS-action/font-awesome-pro.css">
+        <link rel="stylesheet" href="CSS-action/bootstrap.min.css">
+        <link rel="stylesheet" href="CSS-action/scroll_button.css">
+        <link rel="stylesheet" href="CSS-action/spacing.css">
+        <link rel="stylesheet" href="CSS-action/plugin.css">
+        <link rel="stylesheet" href="CSS-action/responsive.css">
     </head>
 
     <body>
@@ -91,5 +98,37 @@
 
         <p>Tous les contenus du site (textes, images, logos) sont protégés par le droit d’auteur. Toute reproduction est
             interdite sans autorisation préalable.</p>
+                <!--================================
+                SCROLL BUTTON START
+            =================================-->
+      <div class="progress" id="toTop" role="button" aria-label="Remonter en haut">
+        <svg class="progress-svg" width="100%" height="100%" viewBox="-1 -1 102 102" aria-hidden="true">
+          <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919px; stroke-dashoffset: 307.919px;">
+          </path>
+        </svg>
+
+        <!-- Flèche -->
+        <svg class="progress-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14l6-6 6 6"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!--================================
+                SCROLL BUTTON END
+            =================================-->
+    </div>
+  </div>
+<!--Les scripts qui rendent le site dynamique-->
+  <script src="CSS-action/plugin.js"></script>
+  <!--scroll button js-->
+  <script src="CSS-action/scroll_button.js"></script>
+  <!--sticky sidebar js-->
+  <script src="CSS-action/sticky_sidebar.js"></script>
+  <!-- Gsap -->
+  <script src="CSS-action/animation.js"></script>
+  <!--main/custom js-->
+  <script src="CSS-action/main.js"></script>
     </body>
 </html>
