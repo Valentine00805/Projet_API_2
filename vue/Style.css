@@ -1,3 +1,8 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Avenir, sans-serif;   
+}
 nav{
     width: 100%;
     /*margin: 0px auto 5px auto;*/
@@ -31,4 +36,95 @@ nav a{
 nav a:hover{
     color: orange;
     border-bottom: 2px solid gold;
+}
+
+/*même chose que le résumé mais pour les différentes catégories de composition*/
+/* bloc et titre cliquable */
+.plus{
+  margin: 16px 0;
+  padding-left: 25px;
+}
+.plus summary{
+  list-style: none;              /* retire le triangle par défaut */
+  cursor: pointer;
+  /* font-weight: 600; */
+  position: relative;
+  padding-left: 1.4rem;
+  outline: none;
+}
+
+/* petit chevron custom */
+.plus summary::before{
+  content: "▸";
+  font-size: 23px;
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  /* margin-right: 100px; */
+  transform: translateY(2px);
+  transition: transform .2s ease;
+}
+.plus[open] summary::before{
+  transform: rotate(90deg) translateY(0);
+}
+
+/* le cadre n’apparaît que lorsque c’est ouvert */
+.plus .plus-body{
+  display: none;                 /* fermé par défaut */
+  margin-left: 30px;
+}
+.plus[open] .plus-body{
+  display: block;
+  margin-top: .75rem;
+  padding: 16px 18px;
+  /* border: 2px solid #009dff;     /* ta couleur bleue 
+  border-radius: 12px;
+  background: #fff; */
+  /* box-shadow: 0 8px 20px rgba(0,0,0,.06); */
+  margin-right: 16px;          /* << espace à droite (dehors du cadre) */
+}
+
+
+/* menu toujours au-dessus */
+nav {
+  position:sticky;
+  z-index: 1000;
+}
+
+/* contenu normal */
+section, img {
+  position: relative;
+  z-index: 1;
+}
+
+
+.tf__skills_2 .nav {
+  justify-content: center;
+}
+
+.tf__skills_2 .nav .nav-item button {
+  text-transform: capitalize;
+  color: var(--colorWhite);
+  margin: 5px 10px;
+  font-weight: 500;
+  border-radius: 5px;
+  background: #fff;
+  color: #CF0E4D;
+  font-size: 16px;
+  padding: 18px 40px;
+  transition: all linear 0.3s;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+}
+
+.tf__skills_2 .nav .nav-item button i {
+  margin-left: 10px;
+}
+
+.tf__skills_2 .nav .nav-item button:hover,
+.tf__skills_2 .nav .nav-item button.active {
+  background: #3FD9CC;
+  color: var(--colorBlack);
 }
