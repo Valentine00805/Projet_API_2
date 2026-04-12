@@ -76,4 +76,8 @@
             </fieldset>
         </form>    
     </body>
+    <footer>
+    <br><br>
+    <?php require "menu_mention_legal.php";?>
+  </footer>
 </html>
