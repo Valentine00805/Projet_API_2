@@ -8,7 +8,8 @@
     $adresse = $_POST["adresse"];
     $telephone = $_POST["telephone"];
     $ida = $_POST["ida"] ?? 0;
-    insertIns($nom, $prenom, $email, $date_naissance, $adresse, $telephone, $ida); //modèle 
+
+    return insertIns($nom, $prenom, $email, $date_naissance, $adresse, $telephone, $ida); // modèle
 }
 function getAllMed()
 {
