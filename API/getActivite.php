@@ -10,11 +10,11 @@
 			if(!empty($_GET["id"]))
 			{
 				$id=intval($_GET["id"]);
-				getActiviter($id);
+				getActivite($id);
 			}
 			else
 			{
-				getActiviter();
+				getActivite();
 			}
 			break;
 		default:
@@ -32,7 +32,7 @@
 		
 		$conn->query("SET NAMES utf8"); 
 		$result = $conn->query($query); 
-	   while ( $row = $result->fetch() ) 
+	   while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) 
 		{
 			$response[] = $row;
 		}
@@ -51,7 +51,7 @@
 			}
 			$conn->query("SET NAMES utf8"); 
 			$result = $conn->query($query); 
-			while ( $row = $result->fetch() ){
+			while ( $row = $result->fetch(PDO::FETCH_ASSOC) ){
 				$response[] = $row;
 			}
 			header('Content-Type: application/json');

@@ -16,10 +16,28 @@
     </head>
     <body>
         <?php require "menu.php";?>
-        <form action="../index.php" method="post"> 
+        <?php if (isset($_GET['success']) && $_GET['success'] == 1) { ?>
+            <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #c3e6cb;">
+                <strong>Succès !</strong> Votre inscription a été enregistrée avec succès.
+            </div>
+        <?php } elseif (isset($_GET['error']) && $_GET['error'] == 1) { ?>
+            <div style="background-color: #f8d7da; color: #842029; padding: 10px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #f5c2c7;">
+                <strong>Erreur :</strong> Vous devez sélectionner une activité valide avant de vous inscrire.
+            </div>
+        <?php } ?>
+        <form action="../Index.php" method="post"> 
             <fieldset>
                 <legend><strong>Formulaire d'inscription : </strong></legend>
-                <input type="hidden" name="ida" value="0">
+                <?php 
+                    $ida = isset($_GET['id']) ? intval($_GET['id']) : 0;
+                    $activiteName = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Non spécifiée';
+                ?>
+                <input type="hidden" name="ida" value="<?php echo $ida; ?>">
+                <?php if ($ida > 0) { ?>
+                    <p style="background-color: #e3f2fd; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                        <strong>Activité sélectionnée : </strong><?php echo $activiteName; ?>
+                    </p>
+                <?php } ?>
                 <div>
                     <ul>
                         <li>
@@ -45,199 +63,14 @@
                         <li>
                             <label for="adresse">Adresse :</label>
                             <textarea id="adresse" name="adresse" placeholder="Champ à remplir"></textarea><br>
-                        </li>                        
+                        </li>
+                        <li>
+                            <label for="activite-selected"><strong>Activité sélectionnée :</strong></label>
+                            <div id="activite-selected" style="background-color: #f0f0f0; padding: 10px; border-radius: 4px; border-left: 4px solid #d4337d; margin-top: 5px;">
+                                <strong><?php echo $activiteName; ?></strong>
+                            </div>
+                        </li>
                     </ul>
-                    <select id="activite1" name="activite1">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite2" name="activite2">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite3" name="activite3">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite4" name="activite4">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite5" name="activite5">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite6" name="activite6">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite7" name="activite7">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite8" name="activite8">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite9" name="activite9">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite10" name="activite10">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite11" name="activite11">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
-
-                    <select id="activite12" name="activite12">
-                        <option value="choix">Choisissez : </option>
-                        <option value="conferencecardiologie">Conférence cardiologie</option>
-                        <option value="ateliernutrition">Atelier nutrition</option>
-                        <option value="séminaireoncologie">Séminaire oncologie</option>
-                        <option value="journeepreventionavc">Journée prévention AVC</option>
-                        <option value="formationpremierssecours">Formation premiers secours</option>
-                        <option value="symposiumdiabetologie">Symposium diabétologie</option>
-                        <option value="congrespharmacologie">Congrès pharmacologie</option>
-                        <option value="ateliergestiondustress">Atelier gestion du stress</option>
-                        <option value="forumsantementale">Forum santé mentale</option>
-                        <option value="journeerhumatologie">Journée rhumatologie</option>
-                        <option value="conferencepediatrie">Conférence pédiatrie</option>
-                        <option value="atelierdermatologie">Atelier dermatologie</option>
-                    </select><br><br>
                 </div>
                 <center><input type="submit" name="actionIns" value="inscrire"></center>
             </fieldset>
