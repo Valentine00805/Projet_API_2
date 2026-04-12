@@ -12,11 +12,50 @@
       .Ouvert {
         color: green;
       }
+      /*Wonder*/
+      .Wonder {
+          display: flex ; 
+          padding: 0; 
+          background-color: fff;
+          justify-content: left; 
+      }
+
+      .Wonder li {
+          list-style-type: none ; 
+      }
+
+      .Wonder a {
+          display: block; 
+          min-width: 120px; 
+
+
+          margin: 0.5rem;
+          padding: 0.4rem 0;
+          text-align: center;
+          background-color: a9cce3;
+          color: 5499c7;
+          text-decoration: none; 
+          border: 1px solid #5499c7;
+          border-radius: 4px;
+          transition: all 0.7s; 
+      }
+
+      .Wonder a:hover {
+          background-color: 5499c7; 
+          color: a9cce3; 
+          border-color: a9cce3;
+      }
+      /*fin : Wonder*/
     </style>
   </head>
 
   <body>
     <?php require "menu.php";?>
+    <ul class="Wonder">
+      <li>
+          <a href="Formulaire_inscription.php">Retour</a>
+      </li>
+    </ul>
     <br><br>
     <center><img src="Logo.jpg" alt="Le logo" width="300" height="200"></center><br><br>
     <center><table border>

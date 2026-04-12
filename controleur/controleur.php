@@ -1,5 +1,5 @@
 <?php
-function ajoutInscrit()
+ function ajoutInscrit()
 {
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
@@ -7,8 +7,8 @@ function ajoutInscrit()
     $date_naissance = $_POST["date_naissance"];
     $adresse = $_POST["adresse"];
     $telephone = $_POST["telephone"];
-    $ida = $_POST["ida"];
-    insertEtu($nom, $prenom, $email, $date_naissance, $adresse, $telephone, $ida) ; //modèle 
+    $ida = $_POST["ida"] ?? 0;
+    insertIns($nom, $prenom, $email, $date_naissance, $adresse, $telephone, $ida); //modèle 
 }
 function getAllMed()
 {

@@ -9,11 +9,10 @@ if (isset($_POST["actionIns"]))
 {
     if ($_POST["actionIns"]=="inscrire")
     {
-        insertIns() ; //contrôleur
-
+        ajoutInscrit(); //contrôleur
     }
 }
 
 // cas défaut : affichage de tous
-getActivites() ; //contrôleur
+getActi(); //contrôleur
 ?>
